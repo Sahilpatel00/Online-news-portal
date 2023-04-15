@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Send Email</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendMail() {
+
+            //getting values from input fields
+
+            var sender = Form.sender.value;
+
+            var receiver = Form.reciever.value;
+
+            var content = Form.content.value;
+
+
+            //Sending email
+
+            Email.send({
+
+                Host: "smtp.gmail.com",
+
+                Username: sender,
+
+                To: receiver,
+
+                From: sender,
+
+                Subject: "Check Email Sending",
+
+                Body: content,
+
+            }).then(function(message) {
+
+                alert("Email sent successfully")
+
+            });
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <form method="post" name="Form">
+
+        <input type="Email" name="sender" placeholder="sender123@gmail.com"><br>
+
+        <input type="Email" name="reciever" placeholder="Reciever321@gmail.com"><br>
+
+        <input type="text" name="Message" placeholder="Enter Email Content" id="Message"><br>
+
+        <input type="button" value="Send Email" onclick="sendMail">
+
+    </form>
+
+
+
+</body>
+
+</html>
